@@ -41,6 +41,8 @@ function safe_end_procs {
       cmd='Enter "\q"'
     elif [[ "$pane_proc" == python* ]]; then
       cmd='C-d'
+    elif [[ "$pane_proc" == kak ]]; then
+      cmd='Escape ":quit!" Enter'
     fi
     echo $cmd | xargs tmux send-keys -t "$pane_id"
   done
